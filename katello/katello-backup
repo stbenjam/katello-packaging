@@ -4,7 +4,12 @@ require 'optparse'
 require 'fileutils'
 
 optparse = OptionParser.new do |opts|
-  opts.banner = "Usage: katello-backup /path/to/dir [options]\n eg: $ katello-backup /tmp/katello-backup"
+  opts.banner = "Usage: katello-backup /path/to/dir\n eg: $ katello-backup /tmp/katello-backup\n\n"
+
+  opts.on_tail('-h', '--help', 'Show this message') do
+    puts opts
+    exit
+  end
 end
 
 optparse.parse!
